@@ -1,0 +1,39 @@
+{
+  "name": "leaflet-example",
+  "version": "0.0.1",
+  "description": "Research on Leaflet to use with non-map tiles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taxigy/leaflet-example.git"
+  },
+  "author": "Rishat Muhametshin <rishatmuhametshin@gmail.com> (http://rishat.us/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taxigy/leaflet-example/issues"
+  },
+  "homepage": "https://github.com/taxigy/leaflet-example#readme",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.2.2",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-react": "^6.0.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "leaflet": "^0.7.7",
+    "react": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-actions": "^0.10.1"
+  }
+}
