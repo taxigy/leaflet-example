@@ -15,8 +15,16 @@ Disadvantages:
 - Need to prepare and serve tiles
 - Number of tiles grows in exponential proportion to number of zoom levels
 
+## Dividing into tiles
+
+[Cropping into equally sized divisions](http://www.imagemagick.org/Usage/crop/#crop_equal) with ImageMagick, but two problems:
+
+- need to do know the size of the image,
+- need to place this image on the center of 256Nx256M white canvas
+
 ## TODO
 
-- [x] Make scrolling work natively
+- [x] Make scrolling work natively (see [prototype of current implementation](http://jsfiddle.net/cxZRM/297/))
 - [ ] Restrict zoom levels
 - [ ] Find a way to produce tiles and expose them on server
+- [ ] Use with non-map tiles (see ["Is Leaflet a good tool for non-map images?"](http://stackoverflow.com/q/13110763/1287643))
