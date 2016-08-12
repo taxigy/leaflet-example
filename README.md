@@ -28,3 +28,7 @@ Disadvantages:
 - [ ] Restrict zoom levels
 - [ ] Find a way to produce tiles and expose them on server
 - [ ] Use with non-map tiles (see ["Is Leaflet a good tool for non-map images?"](http://stackoverflow.com/q/13110763/1287643))
+
+## Links
+
+- Interesting, but wrong implementation of scroll-to-pan: [jsfiddle](https://jsfiddle.net/3v7hd2vx/67/).
