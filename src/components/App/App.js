@@ -26,7 +26,7 @@ export default class App extends Component {
 
     mapNode.addEventListener('wheel', (e) => {
       e.preventDefault();
-      
+
       const c = map.getCenter();
       map.panTo({
         lat: c.lat + e.wheelDeltaY / 100000,
@@ -46,17 +46,6 @@ export default class App extends Component {
           ref={node => {
             this.mapNode = node;
           }} />
-        {`<Map
-          className={styles.map}
-          center={[0, 0]}
-          zoom={5}
-          zoomControl={false}
-          attributionControl={false}
-          scrollWheelZoom={false}>
-          <TileLayer
-            url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-            attribution='k tnx' />
-        </Map>`}
       </div>
     );
   }
