@@ -41,7 +41,6 @@
     "node-sass": "^3.8.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-leaflet": "^0.12.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
