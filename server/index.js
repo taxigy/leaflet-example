@@ -2,11 +2,11 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const {
-  PORT = 3001,
+  PORT = 3000,
   PWD = __dirname
 } = process.env;
 
-app.get('/:zoom/:x/:y', (req, res) => {
+app.get('/tile/:zoom/:x/:y', (req, res) => {
   const {
     zoom,
     x,
@@ -18,4 +18,20 @@ app.get('/:zoom/:x/:y', (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log(`Tile server is running on port ${PORT}.`));
+app.get('/build/:file', (req, res) => {
+  const {
+    file
+  } = req.params;
+
+  res.sendFile(file, {
+    root: path.resolve(PWD, 'build')
+  });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile('index.html', {
+    root: path.resolve(PWD)
+  });
+});
+
+app.listen(PORT, () => console.log(`App and tile server is running on port ${PORT}.`));
