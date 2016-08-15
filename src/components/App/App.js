@@ -14,13 +14,20 @@ export default class App extends Component {
     } = this;
     const map = L.map('map', {
       center: [47.59401, -122.24406],
-      maxZoom: 17,
+      minZoom: 16,
+      maxZoom: 16,
       zoom: 16,
       zoomControl: false,
       attributionControl: false,
       scrollWheelZoom: false
     });
-    const tiles = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}');
+    // const tiles = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}');
+    const tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    const southWest = map.unproject([0, 2048], map.getMaxZoom());
+    const northEast = map.unproject([2048, 0], map.getMaxZoom());
+
+    map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+    map.setView([0, 0], 16);
 
     tiles.addTo(map);
 
