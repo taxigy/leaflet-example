@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -12,9 +13,18 @@ app.get('/tile/:zoom/:x/:y', (req, res) => {
     x,
     y
   } = req.params;
+  const filename = `tile_${zoom}_${x}_${y}.png`;
 
-  res.sendFile(`tile_${zoom}_${x}_${y}.png`, {
-    root: path.resolve(PWD, '../tiles')
+  fs.stat(path.resolve(PWD, 'tiles', filename), (error) => {
+    if (error) {
+      res.sendFile('dummy.png', {
+        root: path.resolve(PWD, 'tiles')
+      });
+    } else {
+      res.sendFile(filename, {
+        root: path.resolve(PWD, 'tiles')
+      });
+    }
   });
 });
 

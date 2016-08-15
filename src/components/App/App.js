@@ -22,7 +22,7 @@ export default class App extends Component {
       scrollWheelZoom: false
     });
     // const tiles = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}');
-    const tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    const tiles = L.tileLayer('/tile/{z}/{x}/{y}');
     const southWest = map.unproject([0, 2048], map.getMaxZoom());
     const northEast = map.unproject([2048, 0], map.getMaxZoom());
 

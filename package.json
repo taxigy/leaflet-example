@@ -4,7 +4,7 @@
   "description": "Research on Leaflet to use with non-map tiles",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"webpack --watch --colors --config webpack.client.config.js\" \"webpack-dev-server\"",
+    "dev": "concurrently \"webpack --watch --colors --config webpack.client.config.js\" \"webpack-dev-server\" \"nodemon ./server/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
