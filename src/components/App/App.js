@@ -22,8 +22,10 @@ export default class App extends Component {
       scrollWheelZoom: false
     });
     // const tiles = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}');
-    const tiles = L.tileLayer('/tile/{z}/{x}/{y}');
-    const southWest = map.unproject([0, 2048], map.getMaxZoom());
+    const tiles = L.tileLayer('/tile/{z}/{x}/{y}', {
+      tileSize: 256
+    });
+    const southWest = map.unproject([0, 1792], map.getMaxZoom());
     const northEast = map.unproject([2048, 0], map.getMaxZoom());
 
     map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
