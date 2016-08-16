@@ -30,6 +30,12 @@ convert -density 150 -background white -alpha remove "input.pdf" +append -crop "
 
 does the trick. It takes a PDF, extracts images with density 150 ppi, stitches them horizontally and then cuts into pieces of 256x256 dimensions. The names are `output_01.png`, `output_02.png`, etc., so bringing them into [z, x, y] triplets is still a challenge. To do that, we need to know original image dimensions.
 
+Leaflet expects all tiles to be square, so first it's critical to bring the image into dimensions that are divisible by 256. Like
+
+```bash
+convert -density 150 -background white -alpha remove -gravity center -extent 2048x1792 "input.pdf" +append -crop "256x256" +repage +adjoin "output_%01d.png"
+```
+
 ## TODO
 
 - [x] Make scrolling work natively (see [prototype of current implementation](http://jsfiddle.net/cxZRM/297/))
