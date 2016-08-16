@@ -13,8 +13,8 @@ export default class App extends Component {
       mapNode
     } = this;
     const map = L.map('map', {
-      center: [47.59401, -122.24406],
-      minZoom: 16,
+      // center: [47.59401, -122.24406],
+      minZoom: 15,
       maxZoom: 16,
       zoom: 16,
       zoomControl: false,
@@ -25,11 +25,11 @@ export default class App extends Component {
     const tiles = L.tileLayer('/tile/{z}/{x}/{y}', {
       tileSize: 256
     });
-    const southWest = map.unproject([0, 1792], map.getMaxZoom());
-    const northEast = map.unproject([2048, 0], map.getMaxZoom());
+    const southWest = map.unproject([0, 1792], 15);
+    const northEast = map.unproject([2048 + 512, 0], 15);
 
     map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
-    map.setView([0, 0], 16);
+    map.setView(map.unproject([0, 0], 15), 15);
 
     tiles.addTo(map);
 
@@ -44,6 +44,8 @@ export default class App extends Component {
         animate: true
       });
     });
+
+    console.log(map);
   }
 
   render() {
